@@ -1,15 +1,34 @@
 import React from 'react'
-import { Table } from 'semantic-ui-react'
+import { Table, TextArea } from 'semantic-ui-react'
 
-export default (props) =>
-  <Table.Row>
-    {
-      props.dialogue && props.header &&
-      props.header.map(h => <Table.Cell
-        key={h}>{
-        h === 'Text' ?
-          String(props.dialogue.Text.raw)
-          : String(props.dialogue[h] || '')
-      }</Table.Cell>)
+export default class Dialogue extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      dialogue: props.dialogue,
     }
-  </Table.Row>
+  }
+
+  handleChange = ({ name, value }) => {
+    this.setState()
+  }
+
+  handleDialogueChange = () => {
+    console.log(arguments)
+  }
+
+  render = () =>
+    <Table.Row>
+      {
+        this.state.dialogue && this.props.header &&
+        this.props.header.map(h => <Table.Cell
+          key={h}>{
+          h === 'Text' ?
+            <TextArea value={String(this.state.dialogue.Text.raw)}
+                      onChange={this.handleDialogueChange}/>
+            : String(this.state.dialogue[h] || '')
+        }</Table.Cell>)
+      }
+    </Table.Row>
+}

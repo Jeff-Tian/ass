@@ -303,9 +303,9 @@ ass-compiler@^0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/ass-compiler/-/ass-compiler-0.0.9.tgz#1590014140cd791e57d0311acb2d626aed9e4838"
 
-ass-serialize@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ass-serialize/-/ass-serialize-1.0.0.tgz#eff86816ba2c2362af810d5bacb02096a26cc5e3"
+ass-serialize@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/ass-serialize/-/ass-serialize-1.1.3.tgz#a69845803207905e973c41a4046ca3a8712889a0"
   dependencies:
     moment "^2.22.2"
 
