@@ -303,6 +303,12 @@ ass-compiler@^0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/ass-compiler/-/ass-compiler-0.0.9.tgz#1590014140cd791e57d0311acb2d626aed9e4838"
 
+ass-serialize@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ass-serialize/-/ass-serialize-1.0.0.tgz#eff86816ba2c2362af810d5bacb02096a26cc5e3"
+  dependencies:
+    moment "^2.22.2"
+
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
@@ -4849,7 +4855,7 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
-moment@2.x.x, moment@^2.16.0:
+moment@2.x.x, moment@^2.16.0, moment@^2.22.2:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 

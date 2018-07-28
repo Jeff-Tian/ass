@@ -3,6 +3,7 @@ import { withPrefix } from 'gatsby-link'
 import { parse } from 'ass-compiler'
 import DialogueList from './dialogue-list'
 import ASS from 'assjs'
+import AssSerialize from 'ass-serialize'
 
 export default class AssEditor extends React.Component {
   constructor(props) {
@@ -29,6 +30,21 @@ export default class AssEditor extends React.Component {
     const { ass, json } = this.state
     const { events } = json
 
-    return <DialogueList events={events}/>
+    return <DialogueList events={events} onJsonChanged={this.onJsonChanged}/>
+  }
+
+  onJsonChanged = (events) => {
+    this.setState({
+      json: {
+        ...json,
+        events,
+      },
+    }, () => {
+      this.setState({
+        ass: AssSerialize.serialize(this.state.json),
+      }, () => {
+        AssEditor.displayASS(this.state.ass)
+      })
+    })
   }
 }

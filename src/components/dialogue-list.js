@@ -17,7 +17,8 @@ export default (props) =>
       {
         props.events && props.events.dialogue &&
         props.events.dialogue.map((d, i) => <Dialogue key={i} dialogue={d}
-                                                      header={props.events.format}/>)
+                                                      header={props.events.format}
+                                                      onJsonChanged={props.onJsonChanged}/>)
       }
     </Table.Body>
   </Table>
