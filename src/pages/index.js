@@ -1,13 +1,17 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { withPrefix } from 'gatsby-link'
+import { Container, Grid } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css'
+import AssEditor from '../components/ass-editor'
 
 const IndexPage = () => (
-  <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </div>
+  <Container fluid>
+    <Container>
+      <video id="video" controls src={withPrefix('test.mp4')}
+             style={{ maxWidth: '100%' }}/>
+    </Container>
+    <AssEditor/>
+  </Container>
 )
 
 export default IndexPage
