@@ -36,12 +36,22 @@ export default class AssEditor extends React.Component {
     AssEditor.displayASS(ass)
   }
 
+  saveASS = () => {
+    this.setState({
+      downloadInfo: {
+        downloadLink: `data:text/plain;charset=utf-8,\ufeff${this.state.ass}`,
+        filename: 'ass.ass',
+      },
+    })
+  }
+
   render() {
     const { ass, json } = this.state
     const { events } = json
 
     return <DialogueList events={events} onJsonChanged={this.onJsonChanged}
-                         reRenderASS={this.reRenderASS}/>
+                         reRenderASS={this.reRenderASS} saveASS={this.saveASS}
+                         downloadInfo={this.state.downloadInfo}/>
   }
 
   onJsonChanged = (index, dialogue) => {
