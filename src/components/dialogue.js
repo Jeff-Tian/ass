@@ -27,15 +27,17 @@ export default class Dialogue extends React.Component {
     })
   }
 
+
   render = () =>
-    <Table.Row>
+    <Table.Row onClick={this.props.onClick} active={this.props.active}>
       {
         this.state.dialogue && this.props.header &&
         this.props.header.map(h => <Table.Cell
           key={h}>{
           h === 'Text' ?
-            <TextArea value={String(this.state.dialogue.Text.raw)}
-                      onChange={this.handleDialogueChange}/>
+            <TextArea autoHeight value={String(this.state.dialogue.Text.raw)}
+                      onChange={this.handleDialogueChange}
+                      style={{ width: '100%', border: 'none' }}/>
             : String(this.state.dialogue[h] === null ? '' : this.state.dialogue[h])
         }</Table.Cell>)
       }

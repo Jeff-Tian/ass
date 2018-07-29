@@ -18,6 +18,7 @@ export default class AssEditor extends React.Component {
     this.setState({
       ass: ass,
       json: parse(ass),
+      activeIndex: 0,
     })
 
     AssEditor.displayASS(ass)
@@ -45,13 +46,19 @@ export default class AssEditor extends React.Component {
     })
   }
 
+  setActiveIndex = (index) => {
+    this.setState({ activeIndex: index })
+  }
+
   render() {
     const { ass, json } = this.state
     const { events } = json
 
     return <DialogueList events={events} onJsonChanged={this.onJsonChanged}
                          reRenderASS={this.reRenderASS} saveASS={this.saveASS}
-                         downloadInfo={this.state.downloadInfo}/>
+                         downloadInfo={this.state.downloadInfo}
+                         activeIndex={this.state.activeIndex}
+                         setActiveIndex={this.setActiveIndex}/>
   }
 
   onJsonChanged = (index, dialogue) => {

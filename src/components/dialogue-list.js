@@ -29,7 +29,9 @@ export default (props) =>
         props.events && props.events.dialogue &&
         props.events.dialogue.map((d, i) => <Dialogue key={i} dialogue={d}
                                                       header={props.events.format}
-                                                      onJsonChanged={(d) => props.onJsonChanged(i, d)}/>)
+                                                      onJsonChanged={(d) => props.onJsonChanged(i, d)}
+                                                      active={props.activeIndex === i}
+                                                      onClick={() => props.setActiveIndex(i)}/>)
       }
     </Table.Body>
   </Table>
