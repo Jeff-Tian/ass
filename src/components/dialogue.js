@@ -14,8 +14,17 @@ export default class Dialogue extends React.Component {
     this.setState()
   }
 
-  handleDialogueChange = () => {
-    console.log(arguments)
+  handleDialogueChange = (event, textarea) => {
+    let { dialogue } = this.state
+
+    this.setState({
+      dialogue: {
+        ...dialogue,
+        Text: { ...dialogue.Text, raw: textarea.value },
+      },
+    }, () => {
+      this.props.onJsonChanged(this.state.dialogue)
+    })
   }
 
   render = () =>
@@ -27,7 +36,7 @@ export default class Dialogue extends React.Component {
           h === 'Text' ?
             <TextArea value={String(this.state.dialogue.Text.raw)}
                       onChange={this.handleDialogueChange}/>
-            : String(this.state.dialogue[h] || '')
+            : String(this.state.dialogue[h] === null ? '' : this.state.dialogue[h])
         }</Table.Cell>)
       }
     </Table.Row>

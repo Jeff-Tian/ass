@@ -5,6 +5,7 @@ import DialogueList from './dialogue-list'
 import ASS from 'assjs'
 import AssSerialize from 'ass-serialize'
 
+let assDisplay = null
 export default class AssEditor extends React.Component {
   constructor(props) {
     super(props)
@@ -23,28 +24,41 @@ export default class AssEditor extends React.Component {
   }
 
   static displayASS(ass) {
-    const assDisplay = new ASS(ass, document.getElementById('video'))
+    if (assDisplay) {
+      assDisplay.destroy()
+    }
+    assDisplay = new ASS(ass, document.getElementById('video'))
+  }
+
+  reRenderASS = () => {
+    let ass = AssSerialize.serialize(this.state.json)
+    this.setState({ ass })
+    AssEditor.displayASS(ass)
   }
 
   render() {
     const { ass, json } = this.state
     const { events } = json
 
-    return <DialogueList events={events} onJsonChanged={this.onJsonChanged}/>
+    return <DialogueList events={events} onJsonChanged={this.onJsonChanged}
+                         reRenderASS={this.reRenderASS}/>
   }
 
-  onJsonChanged = (events) => {
+  onJsonChanged = (index, dialogue) => {
     this.setState({
       json: {
-        ...json,
-        events,
+        ...this.state.json,
+        events: {
+          ...this.state.json.events,
+          dialogue: [
+            ...this.state.json.events.dialogue.slice(0, index),
+            dialogue,
+            ...this.state.json.events.dialogue.slice(index + 1),
+          ],
+        },
       },
     }, () => {
-      this.setState({
-        ass: AssSerialize.serialize(this.state.json),
-      }, () => {
-        AssEditor.displayASS(this.state.ass)
-      })
+      this.reRenderASS()
     })
   }
 }
