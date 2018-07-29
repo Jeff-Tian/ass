@@ -1,9 +1,42 @@
 import React from 'react'
 import { withPrefix } from 'gatsby-link'
-import { parse } from 'ass-compiler'
 import DialogueList from './dialogue-list'
 import ASS from 'assjs'
 import AssSerialize from 'ass-serialize'
+
+let uuidv4 = require('uuid/v4')
+let parse = require('ass-compiler').parse
+
+/* eslint-disable */
+Function.prototype.before = function(func) {
+  const self = this
+  return function() {
+    if (func.apply(this, arguments) === false) {
+      return false
+    }
+
+    return self.apply(this, arguments)
+  }
+}
+
+Function.prototype.after = function(func) {
+  const self = this
+  return function() {
+    let result = self.apply(this, arguments)
+    return func.apply(this, [result])
+  }
+}
+/* eslint-enable */
+
+parse = parse.after((json) => {
+  json.events.dialogue = json.events.dialogue.map(d => {
+    d.id = uuidv4()
+    return d
+  })
+
+  return json
+})
+
 
 let assDisplay = null
 export default class AssEditor extends React.Component {
@@ -50,6 +83,20 @@ export default class AssEditor extends React.Component {
     this.setState({ activeIndex: index })
   }
 
+  removeDialogue = (id) => {
+    this.setState({
+      json: {
+        ...this.state.json,
+        events: {
+          ...this.state.json.events,
+          dialogue: this.state.json.events.dialogue.filter(d => d.id !== id),
+        },
+      },
+    }, () => {
+      this.reRenderASS()
+    })
+  }
+
   render() {
     const { ass, json } = this.state
     const { events } = json
@@ -58,7 +105,8 @@ export default class AssEditor extends React.Component {
                          reRenderASS={this.reRenderASS} saveASS={this.saveASS}
                          downloadInfo={this.state.downloadInfo}
                          activeIndex={this.state.activeIndex}
-                         setActiveIndex={this.setActiveIndex} preview={this.reRenderASS}/>
+                         setActiveIndex={this.setActiveIndex} preview={this.reRenderASS}
+                         removeDialogue={this.removeDialogue}/>
   }
 
   onJsonChanged = (index, dialogue) => {

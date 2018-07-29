@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Table, TextArea } from 'semantic-ui-react'
+import { Button, Icon, Input, Table, TextArea } from 'semantic-ui-react'
 
 export default class Dialogue extends React.Component {
   constructor(props) {
@@ -41,6 +41,7 @@ export default class Dialogue extends React.Component {
 
   render = () =>
     <Table.Row onClick={this.props.onClick} active={this.props.active}>
+      <Table.Cell>{this.props.index}</Table.Cell>
       {
         this.state.dialogue && this.props.header &&
         this.props.header.map(h => <Table.Cell
@@ -72,5 +73,10 @@ export default class Dialogue extends React.Component {
           }
         </Table.Cell>)
       }
+      <Table.Cell><Button className="ui button" color="red" icon labelPosition="left"
+                          onClick={this.props.removeDialogue}>
+        <Icon name="remove"/>
+        删除
+      </Button></Table.Cell>
     </Table.Row>
 }
