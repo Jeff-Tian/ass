@@ -16,9 +16,11 @@ export default class Dialogue extends React.Component {
         ...this.state.dialogue,
         [name]: value,
       },
-    }, () => {
-      this.props.onJsonChanged(this.state.dialogue)
     })
+  }
+
+  handleBlur = (event) => {
+    this.props.onJsonChanged(this.state.dialogue)
   }
 
   handleDialogueChange = (event, textarea) => {
@@ -29,9 +31,11 @@ export default class Dialogue extends React.Component {
         ...dialogue,
         Text: { ...dialogue.Text, raw: textarea.value },
       },
-    }, () => {
-      this.props.onJsonChanged(this.state.dialogue)
     })
+  }
+
+  handleDialogueBlur = (evt) => {
+    this.props.onJsonChanged(this.state.dialogue)
   }
 
 
@@ -44,14 +48,15 @@ export default class Dialogue extends React.Component {
           {
             h === 'Text' &&
             <TextArea autoHeight value={String(this.state.dialogue.Text.raw)}
-                      onChange={this.handleDialogueChange}
-                      style={{ width: '100%', border: 'none' }}/>
+                      style={{ width: '100%', border: 'none' }} onBlur={this.handleDialogueBlur}
+                      onChange={this.handleDialogueChange}/>
           }
           {
             (h === 'Layer' || h === 'Start' || h === 'End' || h === 'MarginL' || h === 'MarginR' || h === 'MarginV') &&
             <Input type="number" transparent fluid
                    value={String(this.state.dialogue[h] === null ? '' : this.state.dialogue[h])}
                    style={{ width: '50px' }} name={h}
+                   onBlur={this.handleBlur}
                    onChange={this.handleChange}/>
           }
           {
@@ -59,6 +64,7 @@ export default class Dialogue extends React.Component {
             <Input type="text" transparent fluid
                    value={String(this.state.dialogue[h] === null ? '' : this.state.dialogue[h])}
                    style={{ width: '50px' }} name={h}
+                   onBlur={this.handleBlur}
                    onChange={this.handleChange}/>
           }
           {

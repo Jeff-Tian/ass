@@ -8,7 +8,8 @@ export default (props) =>
       <Table.Row>
         <Table.Cell
           colSpan={props.events && props.events.format ? props.events.format.length : 1}>
-          <a className='ui green button'
+          <Button className='ui green button left floated' onClick={props.preview}>预览</Button>
+          <a className='ui green button right floated'
              onClick={props.saveASS}
              href={props.downloadInfo ? props.downloadInfo.downloadLink : 'javascript:void(0)'}
              download={props.downloadInfo ? props.downloadInfo.filename : ''}>保存字幕文件</a>

@@ -58,7 +58,7 @@ export default class AssEditor extends React.Component {
                          reRenderASS={this.reRenderASS} saveASS={this.saveASS}
                          downloadInfo={this.state.downloadInfo}
                          activeIndex={this.state.activeIndex}
-                         setActiveIndex={this.setActiveIndex}/>
+                         setActiveIndex={this.setActiveIndex} preview={this.reRenderASS}/>
   }
 
   onJsonChanged = (index, dialogue) => {
