@@ -1,33 +1,13 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Icon, Menu } from 'semantic-ui-react'
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
+  <Menu inverted fluid widths={3}>
+    <Menu.Item name='' active={false}/>`
+    <Menu.Item name={siteTitle} active={true} color={'red'}/>
+    <Menu.Item as='a' href='https://github.com/Jeff-Tian/ass' target="_blank" name='源代码' active={false}><Icon
+      name="github alternate"/></Menu.Item>
+  </Menu>
 )
 
 export default Header

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, TextArea } from 'semantic-ui-react'
+import { Input, Table, TextArea } from 'semantic-ui-react'
 
 export default class Dialogue extends React.Component {
   constructor(props) {
@@ -10,8 +10,15 @@ export default class Dialogue extends React.Component {
     }
   }
 
-  handleChange = ({ name, value }) => {
-    this.setState()
+  handleChange = (event, { name, value }) => {
+    this.setState({
+      dialogue: {
+        ...this.state.dialogue,
+        [name]: value,
+      },
+    }, () => {
+      this.props.onJsonChanged(this.state.dialogue)
+    })
   }
 
   handleDialogueChange = (event, textarea) => {
@@ -33,13 +40,31 @@ export default class Dialogue extends React.Component {
       {
         this.state.dialogue && this.props.header &&
         this.props.header.map(h => <Table.Cell
-          key={h}>{
-          h === 'Text' ?
+          key={h}>
+          {
+            h === 'Text' &&
             <TextArea autoHeight value={String(this.state.dialogue.Text.raw)}
                       onChange={this.handleDialogueChange}
                       style={{ width: '100%', border: 'none' }}/>
-            : String(this.state.dialogue[h] === null ? '' : this.state.dialogue[h])
-        }</Table.Cell>)
+          }
+          {
+            (h === 'Layer' || h === 'Start' || h === 'End' || h === 'MarginL' || h === 'MarginR' || h === 'MarginV') &&
+            <Input type="number" transparent fluid
+                   value={String(this.state.dialogue[h] === null ? '' : this.state.dialogue[h])}
+                   style={{ width: '50px' }} name={h}
+                   onChange={this.handleChange}/>
+          }
+          {
+            (h === 'Style' || h === 'Name' || h === 'Effect') &&
+            <Input type="text" transparent fluid
+                   value={String(this.state.dialogue[h] === null ? '' : this.state.dialogue[h])}
+                   style={{ width: '50px' }} name={h}
+                   onChange={this.handleChange}/>
+          }
+          {
+            // String(this.state.dialogue[h] === null ? '' : this.state.dialogue[h])
+          }
+        </Table.Cell>)
       }
     </Table.Row>
 }

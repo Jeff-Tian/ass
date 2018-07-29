@@ -3,8 +3,8 @@ import { Button, Table } from 'semantic-ui-react'
 import Dialogue from './dialogue'
 
 export default (props) =>
-  <Table celled selectable striped compact>
-    <Table.Header fullWidth>
+  <Table celled selectable striped>
+    <Table.Header>
       <Table.Row>
         <Table.Cell
           colSpan={props.events && props.events.format ? props.events.format.length : 1}>
@@ -15,7 +15,7 @@ export default (props) =>
         </Table.Cell>
       </Table.Row>
     </Table.Header>
-    <Table.Header fullWidth>
+    <Table.Header>
       <Table.Row>
         {
           props.events && props.events.format &&

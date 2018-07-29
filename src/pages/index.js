@@ -6,7 +6,7 @@ import AssEditor from '../components/ass-editor'
 
 const IndexPage = () => (
   <Container fluid>
-    <Container>
+    <Container textAlign='center'>
       <video id="video" controls src={withPrefix('test.mp4')}
              style={{ maxWidth: '100%' }}/>
     </Container>
