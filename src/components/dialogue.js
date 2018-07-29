@@ -73,10 +73,20 @@ export default class Dialogue extends React.Component {
           }
         </Table.Cell>)
       }
-      <Table.Cell><Button className="ui button" color="red" icon labelPosition="left"
-                          onClick={this.props.removeDialogue}>
-        <Icon name="remove"/>
-        删除
-      </Button></Table.Cell>
+      <Table.Cell>
+        <Button className="ui button" color="green" icon labelPosition="left" onClick={this.props.addDialogueBefore}>
+          <Icon name="add"/>
+          插入一条记录
+        </Button>
+        <Button className="ui button" color="red" icon labelPosition="left"
+                onClick={this.props.removeDialogue}>
+          <Icon name="remove"/>
+          删除
+        </Button>
+        <Button className="ui button" color="green" icon labelPosition="left" onClick={this.props.addDialogueAfter}>
+          <Icon name="add"/>
+          追加一条记录
+        </Button>
+      </Table.Cell>
     </Table.Row>
 }

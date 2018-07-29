@@ -35,7 +35,10 @@ export default (props) =>
                                                       onJsonChanged={(d) => props.onJsonChanged(i, d)}
                                                       active={props.activeIndex === i}
                                                       onClick={() => props.setActiveIndex(i)}
-                                                      removeDialogue={() => props.removeDialogue(d.id)}/>)
+                                                      removeDialogue={() => props.removeDialogue(d.id)}
+                                                      addDialogueBefore={() => props.addDialogueBefore(d.id, i)}
+                                                      addDialogueAfter={() => props.addDialogueAfter(d.id, i)}
+        />)
       }
     </Table.Body>
   </Table>

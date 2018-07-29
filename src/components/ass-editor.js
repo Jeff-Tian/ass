@@ -37,6 +37,23 @@ parse = parse.after((json) => {
   return json
 })
 
+function createEmptyDialogue(start, end) {
+  return {
+    id: uuidv4(),
+    'Layer': 0,
+    'Start': start,
+    'End': end,
+    'Style': 'Default',
+    'Name': '',
+    'MarginL': 0,
+    'MarginR': 0,
+    'MarginV': 0,
+    'Effect': null,
+    'Text': {
+      'raw': '新内容',
+    },
+  }
+}
 
 let assDisplay = null
 export default class AssEditor extends React.Component {
@@ -97,6 +114,38 @@ export default class AssEditor extends React.Component {
     })
   }
 
+  addDialogueBefore = (id, index) => {
+    this.setState({
+      json: {
+        ...this.state.json,
+        events: {
+          ...this.state.json.events,
+          dialogue: [
+            ...this.state.json.events.dialogue.slice(0, index),
+            createEmptyDialogue(0, 0),
+            ...this.state.json.events.dialogue.slice(index),
+          ],
+        },
+      },
+    })
+  }
+
+  addDialogueAfter = (id, index) => {
+    this.setState({
+      json: {
+        ...this.state.json,
+        events: {
+          ...this.state.json.events,
+          dialogue: [
+            ...this.state.json.events.dialogue.slice(0, index + 1),
+            createEmptyDialogue(0, 0),
+            ...this.state.json.events.dialogue.slice(index + 1),
+          ],
+        },
+      },
+    })
+  }
+
   render() {
     const { ass, json } = this.state
     const { events } = json
@@ -106,7 +155,10 @@ export default class AssEditor extends React.Component {
                          downloadInfo={this.state.downloadInfo}
                          activeIndex={this.state.activeIndex}
                          setActiveIndex={this.setActiveIndex} preview={this.reRenderASS}
-                         removeDialogue={this.removeDialogue}/>
+                         removeDialogue={this.removeDialogue}
+                         addDialogueBefore={this.addDialogueBefore}
+                         addDialogueAfter={this.addDialogueAfter}
+    />
   }
 
   onJsonChanged = (index, dialogue) => {
