@@ -4,14 +4,20 @@ import { Container } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import AssEditor from '../components/ass-editor'
 
-const IndexPage = () => (
-  <Container fluid>
-    <Container textAlign='center'>
-      <video id="video" controls src={withPrefix('test.mp4')}
-             style={{ maxWidth: '100%' }}/>
-    </Container>
-    <AssEditor/>
-  </Container>
-)
+export default class IndexPage extends React.Component {
+  state = { videoFileLink: withPrefix('test.mp4') }
 
-export default IndexPage
+  loadVideo = (link) => {
+    this.setState({ videoFileLink: link })
+  }
+
+  render() {
+    return <Container fluid>
+      <Container textAlign='center'>
+        <video id="video" controls src={this.state.videoFileLink}
+               style={{ maxWidth: '100%' }}/>
+      </Container>
+      <AssEditor videoFileLink={this.state.videoFileLink} loadVideo={this.loadVideo}/>
+    </Container>
+  }
+}

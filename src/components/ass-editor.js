@@ -58,14 +58,13 @@ let assDisplay = null
 export default class AssEditor extends React.Component {
   constructor(props) {
     super(props)
-    console.log('props=', props)
-    this.state = { ass: '', json: {} }
+    this.state = { ass: '', json: {}, assFileLink: withPrefix('test.ass') }
 
     this.loadAss = this.loadAss.bind(this)
   }
 
   async componentWillMount() {
-    await this.loadAss(withPrefix('test.ass'))
+    await this.loadAss(this.state.assFileLink)
   }
 
   async loadAss(link, showSuccessMessage = false) {
@@ -81,6 +80,7 @@ export default class AssEditor extends React.Component {
         let ass = await response.text()
 
         this.setState({
+          assFileLink: link,
           ass: ass,
           json: parse(ass),
           activeIndex: 0,
@@ -186,6 +186,8 @@ export default class AssEditor extends React.Component {
                          addDialogueBefore={this.addDialogueBefore}
                          addDialogueAfter={this.addDialogueAfter}
                          loadAss={this.loadAss}
+                         loadVideo={this.props.loadVideo}
+                         assFileLink={this.state.assFileLink}
     />
   }
 
