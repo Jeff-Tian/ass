@@ -7,4 +7,5 @@ module.exports = {
   'remove': 'Remove',
   'insert record': 'Insert line before',
   'append record': 'Append line after',
+  'loadASS': 'Load external ASS file',
 }

@@ -60,20 +60,40 @@ export default class AssEditor extends React.Component {
     super(props)
     console.log('props=', props)
     this.state = { ass: '', json: {} }
+
+    this.loadAss = this.loadAss.bind(this)
   }
 
   async componentWillMount() {
+    await this.loadAss(withPrefix('test.ass'))
+  }
+
+  async loadAss(link, showSuccessMessage = false) {
     const isBrowser = typeof window !== 'undefined'
+
     if (isBrowser) {
-      let ass = await (await window.fetch(withPrefix('test.ass'))).text()
+      try {
+        let response = (await window.fetch(link))
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error(await response.text())
+        }
 
-      this.setState({
-        ass: ass,
-        json: parse(ass),
-        activeIndex: 0,
-      })
+        let ass = await response.text()
 
-      AssEditor.displayASS(ass)
+        this.setState({
+          ass: ass,
+          json: parse(ass),
+          activeIndex: 0,
+        })
+
+        AssEditor.displayASS(ass)
+
+        if (showSuccessMessage) {
+          alert('加载 ASS 文件成功！')
+        }
+      } catch (ex) {
+        alert('加载 ASS 文件失败，原因是：' + (ex.message || ex.toString()))
+      }
     }
   }
 
@@ -165,6 +185,7 @@ export default class AssEditor extends React.Component {
                          removeDialogue={this.removeDialogue}
                          addDialogueBefore={this.addDialogueBefore}
                          addDialogueAfter={this.addDialogueAfter}
+                         loadAss={this.loadAss}
     />
   }
 
