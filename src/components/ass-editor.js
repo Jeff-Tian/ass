@@ -3,6 +3,7 @@ import { withPrefix } from 'gatsby-link'
 import DialogueList from './dialogue-list'
 
 import AssSerialize from 'ass-serialize'
+import 'regenerator-runtime/runtime'
 
 let uuidv4 = require('uuid/v4')
 let parse = require('ass-compiler').parse
