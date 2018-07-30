@@ -1,26 +1,20 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# 在线视频字幕（ASS）编辑器
+[立即访问](https://ass-editor.pa-pa.me).
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+## 说明
 
-## Install
+本站点使用 `gatsby` 框架构建。关于字幕编辑，依赖如下 npm 包：
 
-Make sure that you have the Gatsby CLI program installed:
-```sh
-npm install --global gatsby-cli
-```
+- [weizhenye](https://github.com/weizhenye) 的 [ASS](https://github.com/weizhenye/ASS)
+- [Jeff Tian](https://github.com/Jeff-Tian) 的 [ASS Serialize](https://github.com/Jeff-Tian/ass-serialize)
 
-And run from your CLI:
-```sh
-gatsby new gatsby-example-site
-```
 
-Then you can run it by:
-```sh
-cd gatsby-example-site
-gatsby develop
-```
 
-## Deploy
+## 待做事项：
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+- 修改某一行时，自动跳转到视频相应的时间段播放预览
+- 修改视频（选择本地文件，或者直接粘贴视频链接）
+- 修改 ASS 文件元信息
+- 特效的可视化编辑器
+- 播放视频时，自动选择应该编辑的行
+- 扩展 [weizhenye](https://github.com/weizhenye) 的 [ASS](https://github.com/weizhenye/ASS) 支持更多特效

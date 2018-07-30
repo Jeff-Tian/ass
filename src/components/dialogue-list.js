@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import Dialogue from './dialogue'
 import { FormattedMessage } from 'react-intl'
 
@@ -9,7 +9,6 @@ export default (props) =>
       <Table.Row>
         <Table.Cell
           colSpan={props.events && props.events.format ? props.events.format.length + 2 : 1}>
-          {/*<Button className='ui green button left floated' onClick={props.preview}>预览</Button>*/}
           <a className='ui green button right floated'
              onClick={props.saveASS}
              href={props.downloadInfo ? props.downloadInfo.downloadLink : 'javascript:void(0)'}

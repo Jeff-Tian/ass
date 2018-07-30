@@ -3,12 +3,10 @@ import { withPrefix } from 'gatsby-link'
 import DialogueList from './dialogue-list'
 import ASS from 'assjs'
 import AssSerialize from 'ass-serialize'
-import { FormattedMessage } from 'react-intl'
 
 let uuidv4 = require('uuid/v4')
 let parse = require('ass-compiler').parse
 
-/* eslint-disable */
 Function.prototype.before = function(func) {
   const self = this
   return function() {
@@ -27,7 +25,6 @@ Function.prototype.after = function(func) {
     return func.apply(this, [result])
   }
 }
-/* eslint-enable */
 
 parse = parse.after((json) => {
   json.events.dialogue = json.events.dialogue.map(d => {
