@@ -17,6 +17,21 @@ export default class DialogueList extends React.Component {
     })
   }
 
+  onFileChange = (event, input) => {
+    let file = event.target.files[0]
+    if (file) {
+      let reader = new FileReader()
+      reader.addEventListener('load', () => {
+        console.log(reader.result)
+
+        this.setState({
+          assFileLink: reader.result,
+        })
+      }, false)
+      reader.readAsDataURL(file)
+    }
+  }
+
   render() {
     let props = this.props
 
@@ -26,23 +41,35 @@ export default class DialogueList extends React.Component {
           <Table.Cell
             colSpan={props.events && props.events.format ? props.events.format.length + 2 : 1}>
 
-            <div style={{ display: 'inline-block' }}>
-              <Input name="assFileLink" list='ass-files' placeholder="请输入一个 ass 文件 url" onChange={this.handleChange}
-                     style={{ width: '600px' }}/>
-              <datalist id='ass-files'>
-                <option
-                  value='https://raw.githubusercontent.com/Aegisub/Aegisub/master/docs/specs/ass-format-tests.ass'/>
-              </datalist>
+            <div>
+              <div style={{ display: 'inline-block' }}>
+                <Input name="assFileLink" list='ass-files' placeholder="请输入一个 ass 文件 url" onChange={this.handleChange}
+                       style={{ width: '600px' }} value={this.state.assFileLink}/>
+                <datalist id='ass-files'>
+                  <option
+                    value='https://raw.githubusercontent.com/Aegisub/Aegisub/master/docs/specs/ass-format-tests.ass'/>
+                </datalist>
+              </div>
+              &emsp;
+              <Button className='ui green button'
+                      onClick={() => this.state.assFileLink && props.loadAss(this.state.assFileLink, true)}>
+                <FormattedMessage id="loadASS"/>
+              </Button>
+              <a className='ui green button right floated'
+                 onClick={props.saveASS}
+                 href={props.downloadInfo ? props.downloadInfo.downloadLink : 'javascript:void(0)'}
+                 download={props.downloadInfo ? props.downloadInfo.filename : ''}><FormattedMessage id="saveAss"/></a>
             </div>
-            &emsp;
-            <Button className='ui green button'
-                    onClick={() => this.state.assFileLink && props.loadAss(this.state.assFileLink, true)}>
-              <FormattedMessage id="loadASS"/>
-            </Button>
-            <a className='ui green button right floated'
-               onClick={props.saveASS}
-               href={props.downloadInfo ? props.downloadInfo.downloadLink : 'javascript:void(0)'}
-               download={props.downloadInfo ? props.downloadInfo.filename : ''}><FormattedMessage id="saveAss"/></a>
+            <div>&nbsp;</div>
+            <div>
+              <Input type="file" placeholder="请选择本地 ass 文件" name="assFileLink" onChange={this.onFileChange}
+                     accept=".ass,text/plain"/>
+              &emsp;
+              <Button className="ui green button"
+                      onClick={() => this.state.assFileLink && props.loadAss(this.state.assFileLink, true)}>
+                <FormattedMessage id="loadLocalASS"/>
+              </Button>
+            </div>
           </Table.Cell>
         </Table.Row>
       </Table.Header>
