@@ -2,29 +2,33 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import { FormattedMessage } from 'react-intl'
+import { Flag } from 'semantic-ui-react'
+
+const countryLangMapping = {
+  zh: 'cn',
+  en: 'us',
+}
 
 const SelectLanguage = (props) => {
   const links = props.langs.map(lang =>
-    <Link to={lang.link} key={lang.langKey} style={{
-      color: 'white',
-    }}>
-      <li selected={lang.selected}>
-        {lang.langKey}
-      </li>
+    <Link to={lang.link} key={lang.langKey}>
+      <span style={{
+        marginRight: '15px',
+        display: 'inline-block',
+        color: 'white',
+        fontWeight: lang.selected ? 'bold' : 'normal',
+      }}>
+        <Flag name={countryLangMapping[lang.langKey]}/>
+        <FormattedMessage id={lang.langKey}/>
+      </span>
     </Link>,
   )
 
   return (
-    <section>
-      <header style={{
-        color: 'white',
-      }}>
-        <FormattedMessage id="selectLanguage"/>
-      </header>
-      <ul>
-        {links}
-      </ul>
-    </section>
+    <div>
+      <FormattedMessage id="selectLanguage"/>
+      {links}
+    </div>
   )
 }
 

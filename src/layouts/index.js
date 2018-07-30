@@ -20,10 +20,10 @@ const Layout = ({ children, data, location, i18nMessages }) => {
     <IntlProvider locale={langKey} messages={i18nMessages}>
       <div>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={i18nMessages.onlineAssEditor}
           meta={[
-            { name: 'description', content: 'online ass editor' },
-            { name: 'keywords', content: 'ass, subtitle' },
+            { name: 'description', content: i18nMessages.onlineAssEditor },
+            { name: 'keywords', content: 'ass, subtitle, video, 字幕, 视频' },
           ]}
         />
         <Header siteTitle={data.site.siteMetadata.title} langs={langsMenu}/>
@@ -51,7 +51,6 @@ export const query = graphql`
   query SiteTitleQuery {
     site {
       siteMetadata {
-        title
         languages {
           defaultLangKey
           langs

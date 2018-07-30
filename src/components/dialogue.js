@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Icon, Input, Table, TextArea } from 'semantic-ui-react'
+import { FormattedMessage } from 'react-intl'
 
 export default class Dialogue extends React.Component {
   constructor(props) {
@@ -76,16 +77,18 @@ export default class Dialogue extends React.Component {
       <Table.Cell>
         <Button className="ui button" color="green" icon labelPosition="left" onClick={this.props.addDialogueBefore}>
           <Icon name="add"/>
-          插入一条记录
+          <FormattedMessage id="insert record"/>
         </Button>
+        <br/>
         <Button className="ui button" color="red" icon labelPosition="left"
                 onClick={this.props.removeDialogue}>
           <Icon name="remove"/>
-          删除
+          <FormattedMessage id="remove"/>
         </Button>
+        <br/>
         <Button className="ui button" color="green" icon labelPosition="left" onClick={this.props.addDialogueAfter}>
           <Icon name="add"/>
-          追加一条记录
+          <FormattedMessage id="append record"/>
         </Button>
       </Table.Cell>
     </Table.Row>

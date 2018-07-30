@@ -3,6 +3,7 @@ import { withPrefix } from 'gatsby-link'
 import DialogueList from './dialogue-list'
 import ASS from 'assjs'
 import AssSerialize from 'ass-serialize'
+import { FormattedMessage } from 'react-intl'
 
 let uuidv4 = require('uuid/v4')
 let parse = require('ass-compiler').parse
@@ -37,7 +38,7 @@ parse = parse.after((json) => {
   return json
 })
 
-function createEmptyDialogue(start, end) {
+function createEmptyDialogue(start, end, text) {
   return {
     id: uuidv4(),
     'Layer': 0,
@@ -50,7 +51,7 @@ function createEmptyDialogue(start, end) {
     'MarginV': 0,
     'Effect': null,
     'Text': {
-      'raw': '新内容',
+      'raw': text,
     },
   }
 }
@@ -59,6 +60,7 @@ let assDisplay = null
 export default class AssEditor extends React.Component {
   constructor(props) {
     super(props)
+    console.log('props=', props)
     this.state = { ass: '', json: {} }
   }
 
@@ -122,7 +124,7 @@ export default class AssEditor extends React.Component {
           ...this.state.json.events,
           dialogue: [
             ...this.state.json.events.dialogue.slice(0, index),
-            createEmptyDialogue(0, 0),
+            createEmptyDialogue(0, 0, ''),
             ...this.state.json.events.dialogue.slice(index),
           ],
         },
@@ -138,7 +140,7 @@ export default class AssEditor extends React.Component {
           ...this.state.json.events,
           dialogue: [
             ...this.state.json.events.dialogue.slice(0, index + 1),
-            createEmptyDialogue(0, 0),
+            createEmptyDialogue(0, 0, ''),
             ...this.state.json.events.dialogue.slice(index + 1),
           ],
         },
