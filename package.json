@@ -9,8 +9,12 @@
     "assjs": "^0.0.6",
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.46",
+    "gatsby-plugin-i18n": "^0.4.2",
     "gatsby-plugin-react-helmet": "^2.0.11",
+    "intl": "^1.2.5",
+    "ptz-i18n": "^0.4.0",
     "react-helmet": "^5.2.0",
+    "react-intl": "^2.4.0",
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.1",
     "uuid": "^3.3.2"
