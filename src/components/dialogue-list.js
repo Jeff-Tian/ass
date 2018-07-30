@@ -42,32 +42,18 @@ export default class DialogueList extends React.Component {
   onFileChange = (event, input) => {
     let file = event.target.files[0]
 
-    if (file) {
-      const isBrowser = typeof window !== 'undefined'
-      if ('videoFileLink' === input.name && isBrowser) {
-        const URL = window.URL || window.webkitURL
-        this.setState({
-          [input.name]: URL.createObjectURL(file),
-        }, () => {
+    const isBrowser = typeof window !== 'undefined'
+    if (file && isBrowser) {
+      const URL = window.URL || window.webkitURL
+      this.setState({
+        [input.name]: URL.createObjectURL(file),
+      }, () => {
+        if ('assFileLink' === input.name) {
+          this.loadAssToUI()
+        } else {
           this.loadVideoToUI()
-        })
-      } else {
-        let reader = new FileReader()
-
-        reader.addEventListener('load', () => {
-          this.setState({
-            [input.name]: reader.result,
-          }, () => {
-            if ('assFileLink' === input.name) {
-              this.loadAssToUI()
-            } else {
-              this.loadVideoToUI()
-            }
-          })
-        }, false)
-
-        reader.readAsDataURL(file)
-      }
+        }
+      })
     }
   }
 
