@@ -8,5 +8,6 @@ module.exports = {
   'insert record': 'Insert line before',
   'append record': 'Append line after',
   'loadASS': 'Load external ASS file',
+  'loadVideo': 'Load external video file',
   'loadLocalASS': 'Load local ASS file',
 }

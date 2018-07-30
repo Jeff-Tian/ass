@@ -88,14 +88,6 @@ export default class DialogueList extends React.Component {
                 </Button>
               </Tab.Pane>,
             }, {
-              menuItem: '保存 ASS 文件',
-              render: () => <Tab.Pane style={{ textAlign: 'right' }}>
-                <a className='ui green button '
-                   onClick={props.saveASS}
-                   href={props.downloadInfo ? props.downloadInfo.downloadLink : 'javascript:void(0)'}
-                   download={props.downloadInfo ? props.downloadInfo.filename : ''}><FormattedMessage id="saveAss"/></a>
-              </Tab.Pane>,
-            }, {
               menuItem: '加载本地视频',
               render: () => <Tab.Pane>
                 <Input type="file" placeholder="请选择本地视频文件" name="videoFileLink"
@@ -104,9 +96,31 @@ export default class DialogueList extends React.Component {
               </Tab.Pane>,
             }, {
               menuItem: '加载线上视频',
-              render: () => {
+              render: () => <Tab.Pane>
+                <div style={{ display: 'inline-block' }}>
+                  <Input name="videoFileLink" list='video-files' placeholder="请输入一个视频文件 url"
+                         onChange={this.handleChange}
+                         style={{ width: '600px' }} value={this.state.videoFileLink}/>
+                  <datalist id='video-files'>
+                    <option
+                      value='https://vjs.zencdn.net/v/oceans.mp4'/>
+                  </datalist>
+                </div>
 
-              },
+                &emsp;
+                <Button className='ui green button'
+                        onClick={this.loadVideoToUI}>
+                  <FormattedMessage id="loadVideo"/>
+                </Button>
+              </Tab.Pane>,
+            }, {
+              menuItem: '保存 ASS 文件',
+              render: () => <Tab.Pane style={{ textAlign: 'right' }}>
+                <a className='ui green button '
+                   onClick={props.saveASS}
+                   href={props.downloadInfo ? props.downloadInfo.downloadLink : 'javascript:void(0)'}
+                   download={props.downloadInfo ? props.downloadInfo.filename : ''}><FormattedMessage id="saveAss"/></a>
+              </Tab.Pane>,
             }]}/>
           </Table.Cell>
         </Table.Row>
