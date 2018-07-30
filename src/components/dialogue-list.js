@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Input, Tab, Table } from 'semantic-ui-react'
+import { Button, Dropdown, Input, Tab, Table } from 'semantic-ui-react'
 import Dialogue from './dialogue'
 import { FormattedMessage } from 'react-intl'
 
@@ -9,13 +9,34 @@ export default class DialogueList extends React.Component {
     this.state = {
       assFileLink: props.assFileLink,
       videoFileLink: props.videoFileLink,
+      videoList: [
+        {
+          key: 'youku',
+          text: '优酷 WWDC 大会视频',
+          value: 'http://58.216.104.114/65726AF4E473A831A19CDA3C79/03000815005B15E6EA028122D6731B261CB0CB-8194-49E0-958B-5BA7675613FB.mp4?ccode=0590&duration=395&expire=18000&psid=f98b0199f23606e29613d3f36b84e2d5&sp=&ups_client_netip=b4a71942&ups_ts=1532951783&ups_userid=&utid=5X63EwlzsEECAaQ0DDuJ1K%2BV&vid=XMzY0NjMxNzAzMg%3D%3D&vkey=B1271b0f8764d3a9fd4f51b83a65121cd',
+        }, {
+          key: 'videojs', text: '示例视频', value: 'https://vjs.zencdn.net/v/oceans.mp4',
+        },
+      ],
     }
+  }
+
+  componentWillMount() {
+    this.setState({
+      videoFileLink: this.state.videoList[0].value,
+    }, () => {
+      this.loadVideoToUI()
+    })
   }
 
   handleChange = (events, { name, value }) => {
     this.setState({
       [name]: value,
     })
+  }
+
+  handleAddition = (event, { value }) => {
+    this.setState({ videoList: [{ text: value, value }, ...this.state.videoList] })
   }
 
   onFileChange = (event, input) => {
@@ -56,6 +77,7 @@ export default class DialogueList extends React.Component {
   render() {
     let props = this.props
 
+    let videoList = this.state.videoList
     return <Table celled selectable striped>
       <Table.Header>
         <Table.Row>
@@ -98,13 +120,18 @@ export default class DialogueList extends React.Component {
               menuItem: '加载线上视频',
               render: () => <Tab.Pane>
                 <div style={{ display: 'inline-block' }}>
-                  <Input name="videoFileLink" list='video-files' placeholder="请输入一个视频文件 url"
-                         onChange={this.handleChange}
-                         style={{ width: '600px' }} value={this.state.videoFileLink}/>
-                  <datalist id='video-files'>
-                    <option
-                      value='https://vjs.zencdn.net/v/oceans.mp4'/>
-                  </datalist>
+                  <Dropdown name="videoFileLink"
+                            options={videoList}
+                            placeholder='请输入一个视频文件 url，回车确认'
+                            search
+                            selection
+                            fluid
+                            allowAdditions
+                            value={this.state.videoFileLink}
+                            onAddItem={this.handleAddition}
+                            onChange={this.handleChange}
+                            style={{ width: '600px' }}
+                  />
                 </div>
 
                 &emsp;

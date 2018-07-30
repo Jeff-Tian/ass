@@ -15,7 +15,7 @@ export default class IndexPage extends React.Component {
     return <Container fluid>
       <Container textAlign='center'>
         <video id="video" controls src={this.state.videoFileLink}
-               style={{ maxWidth: '100%' }}/>
+               style={{ maxWidth: '100%', minHeight: '500px' }}/>
       </Container>
       <AssEditor videoFileLink={this.state.videoFileLink} loadVideo={this.loadVideo}/>
     </Container>

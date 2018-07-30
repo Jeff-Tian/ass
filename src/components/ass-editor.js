@@ -188,6 +188,7 @@ export default class AssEditor extends React.Component {
                          loadAss={this.loadAss}
                          loadVideo={this.props.loadVideo}
                          assFileLink={this.state.assFileLink}
+                         videoFileLink={this.props.videoFileLink}
     />
   }
 
