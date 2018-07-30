@@ -1,7 +1,7 @@
 import React from 'react'
 import { withPrefix } from 'gatsby-link'
 import DialogueList from './dialogue-list'
-import ASS from 'assjs'
+
 import AssSerialize from 'ass-serialize'
 
 let uuidv4 = require('uuid/v4')
@@ -62,22 +62,29 @@ export default class AssEditor extends React.Component {
   }
 
   async componentWillMount() {
-    let ass = await (await fetch(withPrefix('test.ass'))).text()
+    const isBrowser = typeof window !== 'undefined'
+    if (isBrowser) {
+      let ass = await (await window.fetch(withPrefix('test.ass'))).text()
 
-    this.setState({
-      ass: ass,
-      json: parse(ass),
-      activeIndex: 0,
-    })
+      this.setState({
+        ass: ass,
+        json: parse(ass),
+        activeIndex: 0,
+      })
 
-    AssEditor.displayASS(ass)
+      AssEditor.displayASS(ass)
+    }
   }
 
   static displayASS(ass) {
     if (assDisplay) {
       assDisplay.destroy()
     }
-    assDisplay = new ASS(ass, document.getElementById('video'))
+    const isBrowser = typeof window !== 'undefined'
+    if (isBrowser) {
+      const ASS = require('assjs')
+      assDisplay = new ASS(ass, document.getElementById('video'))
+    }
   }
 
   reRenderASS = () => {
