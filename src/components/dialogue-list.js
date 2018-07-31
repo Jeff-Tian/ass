@@ -16,11 +16,6 @@ export default class DialogueList extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({
-      videoFileLink: this.state.videoList[0].value,
-    }, () => {
-      this.loadVideoToUI()
-    })
   }
 
   handleChange = (events, { name, value }) => {
