@@ -9,15 +9,9 @@ export default class DialogueList extends React.Component {
     this.state = {
       assFileLink: props.assFileLink,
       videoFileLink: props.videoFileLink,
-      videoList: [
-        {
-          key: 'youku',
-          text: '优酷 WWDC 大会视频',
-          value: 'http://58.216.104.114/65726AF4E473A831A19CDA3C79/03000815005B15E6EA028122D6731B261CB0CB-8194-49E0-958B-5BA7675613FB.mp4?ccode=0590&duration=395&expire=18000&psid=f98b0199f23606e29613d3f36b84e2d5&sp=&ups_client_netip=b4a71942&ups_ts=1532951783&ups_userid=&utid=5X63EwlzsEECAaQ0DDuJ1K%2BV&vid=XMzY0NjMxNzAzMg%3D%3D&vkey=B1271b0f8764d3a9fd4f51b83a65121cd',
-        }, {
-          key: 'videojs', text: '示例视频', value: 'https://vjs.zencdn.net/v/oceans.mp4',
-        },
-      ],
+      videoList: [{
+        key: 'videojs', text: '示例视频', value: 'https://vjs.zencdn.net/v/oceans.mp4',
+      }],
     }
   }
 
