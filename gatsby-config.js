@@ -1,6 +1,7 @@
 const languages = require('./src/data/languages')
 
 module.exports = {
+  pathPrefix: '/ass',
   siteMetadata: {
     title: 'Online ASS Editor',
     languages,
