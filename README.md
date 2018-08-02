@@ -1,5 +1,7 @@
 # 在线视频字幕（ASS）编辑器
-[立即访问](https://ass-editor.pa-pa.me).
+[立即访问](https://ass-editor.pa-pa.me)。
+
+如果以上链接比较慢，请[尝试这个](https://jeff-tian.github.io/ass/)。
 
 ## 说明
 

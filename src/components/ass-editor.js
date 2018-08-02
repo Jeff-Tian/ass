@@ -58,7 +58,7 @@ let assDisplay = null
 export default class AssEditor extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { ass: '', json: {}, assFileLink: withPrefix('test.ass') }
+    this.state = { ass: '', json: {}, assFileLink: withPrefix('/test.ass') }
 
     this.loadAss = this.loadAss.bind(this)
   }

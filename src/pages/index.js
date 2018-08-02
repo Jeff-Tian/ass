@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css'
 import AssEditor from '../components/ass-editor'
 
 export default class IndexPage extends React.Component {
-  state = { videoFileLink: withPrefix('test.mp4') }
+  state = { videoFileLink: withPrefix('/test.mp4') }
 
   loadVideo = (link) => {
     this.setState({ videoFileLink: link })
