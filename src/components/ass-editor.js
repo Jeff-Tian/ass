@@ -55,6 +55,7 @@ function createEmptyDialogue(start, end, text) {
 }
 
 let assDisplay = null
+
 export default class AssEditor extends React.Component {
   constructor(props) {
     super(props)
@@ -78,6 +79,8 @@ export default class AssEditor extends React.Component {
         }
 
         let ass = await response.text()
+        console.log(parse(ass))
+        console.log('done')
 
         this.setState({
           assFileLink: link,
@@ -93,13 +96,18 @@ export default class AssEditor extends React.Component {
         }
       } catch (ex) {
         alert('加载 ASS 文件失败，原因是：' + (ex.message || ex.toString()))
+        throw ex
       }
     }
   }
 
   static displayASS(ass) {
     if (assDisplay) {
-      assDisplay.destroy()
+      try {
+        assDisplay.destroy()
+      } catch (e) {
+
+      }
     }
     const isBrowser = typeof window !== 'undefined'
     if (isBrowser) {

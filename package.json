@@ -21,7 +21,10 @@
     "uuid": "^3.3.2"
   },
   "keywords": [
-    "gatsby"
+    "ass",
+    "editor",
+    "video",
+    "subtitle"
   ],
   "license": "MIT",
   "scripts": {
@@ -38,6 +41,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/Jeff-Tian/ass"
   }
 }

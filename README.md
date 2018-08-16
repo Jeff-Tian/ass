@@ -10,7 +10,14 @@
 - [weizhenye](https://github.com/weizhenye) 的 [ASS](https://github.com/weizhenye/ASS)
 - [Jeff Tian](https://github.com/Jeff-Tian) 的 [ASS Serialize](https://github.com/Jeff-Tian/ass-serialize)
 
-
+## 本地开发：
+```bash
+git clone https://github.com/Jeff-Tian/ass
+cd ass
+npm install
+# 注意，仅仅运行 gatsby develop 有时 HMR 会不工作
+gatsby develop
+```
 
 ## 待做事项：
 

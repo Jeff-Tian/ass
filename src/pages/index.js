@@ -1,6 +1,6 @@
 import React from 'react'
 import { withPrefix } from 'gatsby-link'
-import { Container } from 'semantic-ui-react'
+import { Container, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import AssEditor from '../components/ass-editor'
 

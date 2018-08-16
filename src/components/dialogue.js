@@ -90,6 +90,7 @@ export default class Dialogue extends React.Component {
           <Icon name="add"/>
           <FormattedMessage id="append record"/>
         </Button>
+        <br/>
       </Table.Cell>
     </Table.Row>
 }
