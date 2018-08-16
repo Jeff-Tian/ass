@@ -17,7 +17,7 @@
     "react-helmet": "^5.2.0",
     "react-intl": "^2.4.0",
     "semantic-ui-css": "^2.3.3",
-    "semantic-ui-react": "^0.82.1",
+    "semantic-ui-react": "^0.82.2",
     "uuid": "^3.3.2"
   },
   "keywords": [
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "gh-pages": "^1.2.0",
-    "prettier": "^1.13.7"
+    "prettier": "^1.14.2"
   },
   "repository": {
     "type": "git",
