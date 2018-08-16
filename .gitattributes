@@ -3,3 +3,8 @@
 *.js text eol=lf
 *.json text eol=lf
 README.md text eol=lf
+.prettierrc text eol=lf
+LICENSE text eol=lf
+*.css text eol=lf
+*.ass text eol=lf
+yarn.lock text eol=lf
