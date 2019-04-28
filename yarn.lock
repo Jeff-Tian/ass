@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.0.0-beta.49":
-  version "7.0.0-beta.54"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.54.tgz#39ebb42723fe7ca4b3e1b00e967e80138d47cadf"
+"@babel/runtime@^7.0.0-beta.56":
+  version "7.4.3"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
+  integrity sha1-eYiORSA0IjrZYJGHoK0f4NKtS9w=
   dependencies:
-    core-js "^2.5.7"
-    regenerator-runtime "^0.12.0"
+    regenerator-runtime "^0.13.2"
 
 "@types/configstore@^2.1.1":
   version "2.1.1"
@@ -323,9 +323,10 @@ assign-symbols@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
 
-assjs@^0.0.6:
+assjs@0.0.6:
   version "0.0.6"
-  resolved "https://registry.yarnpkg.com/assjs/-/assjs-0.0.6.tgz#64ebd91aedf09107088c82f8def6ab12ed8a700a"
+  resolved "https://registry.npm.taobao.org/assjs/download/assjs-0.0.6.tgz#64ebd91aedf09107088c82f8def6ab12ed8a700a"
+  integrity sha1-ZOvZGu3wkQcIjIL43varEu2KcAo=
 
 async-each@^1.0.0, async-each@^1.0.1:
   version "1.0.1"
@@ -950,9 +951,10 @@ babel-plugin-transform-react-jsx@^6.24.1, babel-plugin-transform-react-jsx@^6.8.
     babel-plugin-syntax-jsx "^6.8.0"
     babel-runtime "^6.22.0"
 
-babel-plugin-transform-regenerator@^6.22.0, babel-plugin-transform-regenerator@^6.24.1, babel-plugin-transform-regenerator@^6.26.0:
+babel-plugin-transform-regenerator@6.26.0, babel-plugin-transform-regenerator@^6.22.0, babel-plugin-transform-regenerator@^6.24.1:
   version "6.26.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-regenerator/-/babel-plugin-transform-regenerator-6.26.0.tgz#e0703696fbde27f0a3efcacf8b4dca2f7b3a8f2f"
+  resolved "https://registry.npm.taobao.org/babel-plugin-transform-regenerator/download/babel-plugin-transform-regenerator-6.26.0.tgz#e0703696fbde27f0a3efcacf8b4dca2f7b3a8f2f"
+  integrity sha1-4HA2lvveJ/Cj78rPi03KL3s6jy8=
   dependencies:
     regenerator-transform "^0.10.0"
 
@@ -1936,7 +1938,7 @@ core-js@^1.0.0, core-js@^1.2.6:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
-core-js@^2.4.0, core-js@^2.5.0, core-js@^2.5.7:
+core-js@^2.4.0, core-js@^2.5.0:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
 
@@ -3159,7 +3161,7 @@ gatsby-cli@^1.1.58:
     yargs "^11.1.0"
     yurnalist "^0.2.1"
 
-gatsby-link@^1.6.46:
+gatsby-link@1.6.46, gatsby-link@^1.6.46:
   version "1.6.46"
   resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-1.6.46.tgz#1f9f6bd7a4d448a856c2035e54f2263d7933f4fd"
   dependencies:
@@ -3176,9 +3178,10 @@ gatsby-module-loader@^1.0.11:
     babel-runtime "^6.26.0"
     loader-utils "^0.2.16"
 
-gatsby-plugin-i18n@^0.4.2:
+gatsby-plugin-i18n@0.4.2:
   version "0.4.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-i18n/-/gatsby-plugin-i18n-0.4.2.tgz#30eb0f98b99e016f4965c00ac39eff5274f3af96"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-i18n/download/gatsby-plugin-i18n-0.4.2.tgz#30eb0f98b99e016f4965c00ac39eff5274f3af96"
+  integrity sha1-MOsPmLmeAW9JZcAKw57/UnTzr5Y=
   dependencies:
     folktale "^2.0.1"
     graphql "^0.11.7"
@@ -3196,9 +3199,10 @@ gatsby-plugin-page-creator@^1.0.1:
     parse-filepath "^1.0.1"
     slash "^1.0.0"
 
-gatsby-plugin-react-helmet@^2.0.11:
+gatsby-plugin-react-helmet@2.0.11:
   version "2.0.11"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-2.0.11.tgz#a2db81755f5b41d54e0e535ca1d9a008d3ccff0a"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-react-helmet/download/gatsby-plugin-react-helmet-2.0.11.tgz#a2db81755f5b41d54e0e535ca1d9a008d3ccff0a"
+  integrity sha1-otuBdV9bQdVODlNcodmgCNPM/wo=
   dependencies:
     babel-runtime "^6.26.0"
 
@@ -3210,9 +3214,10 @@ gatsby-react-router-scroll@^1.0.18:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby@^1.9.277:
+gatsby@1.9.277:
   version "1.9.277"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.277.tgz#d2f5a6206fc66ed46fcf57985d4b1e2b491e9559"
+  resolved "https://registry.npm.taobao.org/gatsby/download/gatsby-1.9.277.tgz#d2f5a6206fc66ed46fcf57985d4b1e2b491e9559"
+  integrity sha1-0vWmIG/GbtRvz1eYXUseK0kelVk=
   dependencies:
     async "^2.1.2"
     babel-code-frame "^6.22.0"
@@ -3377,6 +3382,7 @@ getpass@^0.1.1:
 gh-pages@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/gh-pages/-/gh-pages-1.2.0.tgz#1acb92801078f7c038a167f447221d1496ccfbee"
+  integrity sha512-cGLYAvxtlQ1iTwAS4g7FreZPXoE/g62Fsxln2mmR19mgs4zZI+XJ+wVVUhBFCF/0+Nmvbq+abyTWue1m1BSnmg==
   dependencies:
     async "2.6.1"
     commander "2.15.1"
@@ -3890,9 +3896,10 @@ intl-relativeformat@^2.0.0:
   dependencies:
     intl-messageformat "^2.0.0"
 
-intl@^1.2.5:
+intl@1.2.5:
   version "1.2.5"
-  resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
+  resolved "https://registry.npm.taobao.org/intl/download/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
+  integrity sha1-giRKIZDE5Bn4Nx9ao02qNCDiq94=
 
 invariant@^2.1.1, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
@@ -6094,9 +6101,10 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.13.7:
-  version "1.13.7"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.7.tgz#850f3b8af784a49a6ea2d2eaa7ed1428a34b7281"
+prettier@1.14.2:
+  version "1.14.2"
+  resolved "https://registry.npm.taobao.org/prettier/download/prettier-1.14.2.tgz#0ac1c6e1a90baa22a62925f41963c841983282f9"
+  integrity sha1-CsHG4akLqiKmKSX0GWPIQZgygvk=
 
 pretty-error@^2.1.1:
   version "2.1.1"
@@ -6164,16 +6172,17 @@ pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
 
-ptz-i18n@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ptz-i18n/-/ptz-i18n-0.3.0.tgz#f9b6b6874475a15c0abc0c3f82bce2ac9a6d5af4"
+ptz-i18n@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.npm.taobao.org/ptz-i18n/download/ptz-i18n-0.4.0.tgz#eaa667a9b235eff39b2ef122f02276dd08a0b525"
+  integrity sha1-6qZnqbI17/ObLvEi8CJ23QigtSU=
   dependencies:
     folktale "^2.0.1"
     ramda "^0.24.1"
 
-ptz-i18n@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/ptz-i18n/-/ptz-i18n-0.4.0.tgz#eaa667a9b235eff39b2ef122f02276dd08a0b525"
+ptz-i18n@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ptz-i18n/-/ptz-i18n-0.3.0.tgz#f9b6b6874475a15c0abc0c3f82bce2ac9a6d5af4"
   dependencies:
     folktale "^2.0.1"
     ramda "^0.24.1"
@@ -6338,9 +6347,10 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
-react-helmet@^5.2.0:
+react-helmet@5.2.0:
   version "5.2.0"
-  resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-5.2.0.tgz#a81811df21313a6d55c5f058c4aeba5d6f3d97a7"
+  resolved "https://registry.npm.taobao.org/react-helmet/download/react-helmet-5.2.0.tgz#a81811df21313a6d55c5f058c4aeba5d6f3d97a7"
+  integrity sha1-qBgR3yExOm1VxfBYxK66XW89l6c=
   dependencies:
     deep-equal "^1.0.1"
     object-assign "^4.1.1"
@@ -6357,9 +6367,10 @@ react-hot-loader@^3.0.0-beta.6:
     redbox-react "^1.3.6"
     source-map "^0.6.1"
 
-react-intl@^2.4.0:
+react-intl@2.4.0:
   version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-2.4.0.tgz#66c14dc9df9a73b2fbbfbd6021726e80a613eb15"
+  resolved "https://registry.npm.taobao.org/react-intl/download/react-intl-2.4.0.tgz#66c14dc9df9a73b2fbbfbd6021726e80a613eb15"
+  integrity sha1-ZsFNyd+ac7L7v71gIXJugKYT6xU=
   dependencies:
     intl-format-cache "^2.0.5"
     intl-messageformat "^2.1.0"
@@ -6555,9 +6566,10 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
 
-regenerator-runtime@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.0.tgz#8052ac952d85b10f3425192cd0c53f45cf65c6cb"
+regenerator-runtime@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.npm.taobao.org/regenerator-runtime/download/regenerator-runtime-0.13.2.tgz#32e59c9a6fb9b1a4aff09b4930ca2d4477343447"
+  integrity sha1-MuWcmm+5saSv8JtJMMotRHc0NEc=
 
 regenerator-transform@^0.10.0:
   version "0.10.1"
@@ -6938,17 +6950,19 @@ scroll-behavior@^0.9.9:
     dom-helpers "^3.2.1"
     invariant "^2.2.2"
 
-semantic-ui-css@^2.3.3:
+semantic-ui-css@2.3.3:
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/semantic-ui-css/-/semantic-ui-css-2.3.3.tgz#134794cde03344092f2728ff61bf9203cf172834"
+  resolved "https://registry.npm.taobao.org/semantic-ui-css/download/semantic-ui-css-2.3.3.tgz#134794cde03344092f2728ff61bf9203cf172834"
+  integrity sha1-E0eUzeAzRAkvJyj/Yb+SA88XKDQ=
   dependencies:
     jquery x.*
 
-semantic-ui-react@^0.82.1:
-  version "0.82.1"
-  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.82.1.tgz#fa779a20bad064ca7b333bc719dae120b795f740"
+semantic-ui-react@0.82.2:
+  version "0.82.2"
+  resolved "https://registry.npm.taobao.org/semantic-ui-react/download/semantic-ui-react-0.82.2.tgz#725f6a1a5f007cebff66c2c9f697b165ce1ebceb"
+  integrity sha1-cl9qGl8AfOv/ZsLJ9pexZc4evOs=
   dependencies:
-    "@babel/runtime" "^7.0.0-beta.49"
+    "@babel/runtime" "^7.0.0-beta.56"
     classnames "^2.2.5"
     keyboard-key "^1.0.1"
     lodash "^4.17.10"
@@ -7960,7 +7974,7 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
+uuid@3.3.2, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
