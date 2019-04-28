@@ -20,7 +20,8 @@
     "react-intl": "2.4.0",
     "semantic-ui-css": "2.3.3",
     "semantic-ui-react": "0.82.2",
-    "uuid": "3.3.2"
+    "uuid": "3.3.2",
+    "react": "latest"
   },
   "keywords": [
     "ass",
