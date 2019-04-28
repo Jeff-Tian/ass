@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "author": "Jeff Tian <jeff.tian@outlook.com>",
   "dependencies": {
+    "ag-grid-community": "^20.2.0",
+    "ag-grid-react": "^20.2.0",
     "ass-compiler": "^0.0.9",
     "ass-serialize": "^1.1.3",
     "assjs": "0.0.6",
