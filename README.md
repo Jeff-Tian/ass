@@ -5,6 +5,7 @@
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
+[![Build Status](https://travis-ci.com/Jeff-Tian/ass.svg?branch=master)](https://travis-ci.com/Jeff-Tian/ass)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/Jeff-Tian/ass)
 
 ## 说明
