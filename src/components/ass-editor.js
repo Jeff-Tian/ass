@@ -27,7 +27,7 @@ Function.prototype.after = function(func) {
   }
 }
 
-parse = parse.after((json) => {
+parse = parse.after(json => {
   json.events.dialogue = json.events.dialogue.map(d => {
     d.id = uuidv4()
     return d
@@ -39,17 +39,17 @@ parse = parse.after((json) => {
 function createEmptyDialogue(start, end, text) {
   return {
     id: uuidv4(),
-    'Layer': 0,
-    'Start': start,
-    'End': end,
-    'Style': 'Default',
-    'Name': '',
-    'MarginL': 0,
-    'MarginR': 0,
-    'MarginV': 0,
-    'Effect': null,
-    'Text': {
-      'raw': text,
+    Layer: 0,
+    Start: start,
+    End: end,
+    Style: 'Default',
+    Name: '',
+    MarginL: 0,
+    MarginR: 0,
+    MarginV: 0,
+    Effect: null,
+    Text: {
+      raw: text,
     },
   }
 }
@@ -73,7 +73,7 @@ export default class AssEditor extends React.Component {
 
     if (isBrowser) {
       try {
-        let response = (await window.fetch(link))
+        let response = await window.fetch(link)
         if (response.status < 200 || response.status >= 300) {
           throw new Error(await response.text())
         }
@@ -105,13 +105,12 @@ export default class AssEditor extends React.Component {
     if (assDisplay) {
       try {
         assDisplay.destroy()
-      } catch (e) {
-
-      }
+      } catch (e) {}
     }
     const isBrowser = typeof window !== 'undefined'
     if (isBrowser) {
-      const ASS = require('assjs')
+      const ASS = require('assjs').default
+      console.log('ASS = ', ASS)
       assDisplay = new ASS(ass, document.getElementById('video'))
     }
   }
@@ -131,22 +130,25 @@ export default class AssEditor extends React.Component {
     })
   }
 
-  setActiveIndex = (index) => {
+  setActiveIndex = index => {
     this.setState({ activeIndex: index })
   }
 
-  removeDialogue = (id) => {
-    this.setState({
-      json: {
-        ...this.state.json,
-        events: {
-          ...this.state.json.events,
-          dialogue: this.state.json.events.dialogue.filter(d => d.id !== id),
+  removeDialogue = id => {
+    this.setState(
+      {
+        json: {
+          ...this.state.json,
+          events: {
+            ...this.state.json.events,
+            dialogue: this.state.json.events.dialogue.filter(d => d.id !== id),
+          },
         },
       },
-    }, () => {
-      this.reRenderASS()
-    })
+      () => {
+        this.reRenderASS()
+      }
+    )
   }
 
   addDialogueBefore = (id, index) => {
@@ -185,36 +187,45 @@ export default class AssEditor extends React.Component {
     const { ass, json } = this.state
     const { events } = json
 
-    return <DialogueList events={events} onJsonChanged={this.onJsonChanged}
-                         reRenderASS={this.reRenderASS} saveASS={this.saveASS}
-                         downloadInfo={this.state.downloadInfo}
-                         activeIndex={this.state.activeIndex}
-                         setActiveIndex={this.setActiveIndex} preview={this.reRenderASS}
-                         removeDialogue={this.removeDialogue}
-                         addDialogueBefore={this.addDialogueBefore}
-                         addDialogueAfter={this.addDialogueAfter}
-                         loadAss={this.loadAss}
-                         loadVideo={this.props.loadVideo}
-                         assFileLink={this.state.assFileLink}
-                         videoFileLink={this.props.videoFileLink}
-    />
+    return (
+      <DialogueList
+        events={events}
+        onJsonChanged={this.onJsonChanged}
+        reRenderASS={this.reRenderASS}
+        saveASS={this.saveASS}
+        downloadInfo={this.state.downloadInfo}
+        activeIndex={this.state.activeIndex}
+        setActiveIndex={this.setActiveIndex}
+        preview={this.reRenderASS}
+        removeDialogue={this.removeDialogue}
+        addDialogueBefore={this.addDialogueBefore}
+        addDialogueAfter={this.addDialogueAfter}
+        loadAss={this.loadAss}
+        loadVideo={this.props.loadVideo}
+        assFileLink={this.state.assFileLink}
+        videoFileLink={this.props.videoFileLink}
+      />
+    )
   }
 
   onJsonChanged = (index, dialogue) => {
-    this.setState({
-      json: {
-        ...this.state.json,
-        events: {
-          ...this.state.json.events,
-          dialogue: [
-            ...this.state.json.events.dialogue.slice(0, index),
-            dialogue,
-            ...this.state.json.events.dialogue.slice(index + 1),
-          ],
+    this.setState(
+      {
+        json: {
+          ...this.state.json,
+          events: {
+            ...this.state.json.events,
+            dialogue: [
+              ...this.state.json.events.dialogue.slice(0, index),
+              dialogue,
+              ...this.state.json.events.dialogue.slice(index + 1),
+            ],
+          },
         },
       },
-    }, () => {
-      this.reRenderASS()
-    })
+      () => {
+        this.reRenderASS()
+      }
+    )
   }
 }
