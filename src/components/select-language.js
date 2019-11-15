@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import { FormattedMessage } from 'react-intl'
 import { Flag } from 'semantic-ui-react'
 
@@ -9,24 +9,26 @@ const countryLangMapping = {
   en: 'us',
 }
 
-const SelectLanguage = (props) => {
-  const links = props.langs.map(lang =>
+const SelectLanguage = props => {
+  const links = props.langs.map(lang => (
     <Link to={lang.link} key={lang.langKey}>
-      <span style={{
-        marginRight: '15px',
-        display: 'inline-block',
-        color: 'white',
-        fontWeight: lang.selected ? 'bold' : 'normal',
-      }}>
-        <Flag name={countryLangMapping[lang.langKey]}/>
-        <FormattedMessage id={lang.langKey}/>
+      <span
+        style={{
+          marginRight: '15px',
+          display: 'inline-block',
+          color: 'white',
+          fontWeight: lang.selected ? 'bold' : 'normal',
+        }}
+      >
+        <Flag name={countryLangMapping[lang.langKey]} />
+        <FormattedMessage id={lang.langKey} />
       </span>
-    </Link>,
-  )
+    </Link>
+  ))
 
   return (
     <div>
-      <FormattedMessage id="selectLanguage"/>
+      <FormattedMessage id="selectLanguage" />
       {links}
     </div>
   )
