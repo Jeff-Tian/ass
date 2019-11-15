@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/pages/index.zh.js"],"names":[],"mappings":"2FAAA,4CAGe,4BAAM,kBAAC,UAAD","file":"component---src-pages-index-zh-js-276719f96c7c3f98c4dd.js","sourcesContent":["import React from 'react'\nimport IndexPage from './index'\n\nexport default () => <IndexPage/>\n"],"sourceRoot":""}
