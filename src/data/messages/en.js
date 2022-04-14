@@ -10,4 +10,5 @@ module.exports = {
   'loadASS': 'Load external ASS file',
   'loadVideo': 'Load external video file',
   'loadLocalASS': 'Load local ASS file',
+  'login': 'Sign In',
 }

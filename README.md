@@ -23,6 +23,7 @@ cd ass
 npm install
 # 注意，仅仅运行 gatsby develop 有时 HMR 会不工作
 gatsby develop
+open http://localhost:8000
 ```
 
 ## 待做事项：

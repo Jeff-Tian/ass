@@ -10,4 +10,5 @@ module.exports = {
   'loadASS': '加载外部 ASS 文件',
   'loadVideo': '加载外部视频文件',
   'loadLocalASS': '加载本地 ASS 文件',
+  'login': '登录',
 }
