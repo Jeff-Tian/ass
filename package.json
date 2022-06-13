@@ -33,14 +33,15 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "jest src/**/*.test.js",
     "predeploy": "gatsby build --prefix-paths",
     "deploy": "gh-pages -d public"
   },
   "devDependencies": {
     "gh-pages": "*",
+    "jest": "^28.1.1",
     "prettier": "*"
   },
   "repository": {
