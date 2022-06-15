@@ -11,5 +11,7 @@ module.exports = {
     'loadVideo': '加载外部视频文件',
     'loadLocalASS': '加载本地 ASS 文件',
     'login': '登录',
-    'source': '源代码'
+    'source': '源代码',
+    'downloadZhihuVideo': '下载知乎视频',
+    'why': '本站来历'
 }

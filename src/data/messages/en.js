@@ -11,5 +11,7 @@ module.exports = {
     'loadVideo': 'Load external video file',
     'loadLocalASS': 'Load local ASS file',
     'login': 'Sign In',
-    'source': 'Source Code'
+    'source': 'Source Code',
+    'downloadZhihuVideo': 'Download Zhihu Video',
+    'why': 'Why'
 }
