@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Jeff Tian <jeff.tian@outlook.com>",
   "dependencies": {
+    "@uniheart/experience.ui.uniheart-rich-footer": "^0.0.4",
     "ag-grid-community": "*",
     "ag-grid-react": "*",
     "aliplayer-react": "*",
