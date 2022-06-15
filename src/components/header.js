@@ -5,8 +5,11 @@ import {FormattedMessage} from 'react-intl'
 
 const Header = ({siteTitle, langs}) => (
     <Menu inverted fluid widths={4}>
-        <Menu.Item as='a' href='https://github.com/Jeff-Tian/ass' target="_blank" name='源代码' active={false}><Icon
-            name="github alternate"/></Menu.Item>
+        <Menu.Item as='a' href='https://github.com/Jeff-Tian/ass' target="_blank" name='源代码' active={false}>
+            <Icon
+            name="github alternate"/>
+            <FormattedMessage id='source' />
+        </Menu.Item>
         <Menu.Item name={siteTitle} active={true} color={'red'}>
             <FormattedMessage id="onlineAssEditor"/>
         </Menu.Item>

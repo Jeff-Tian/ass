@@ -115,7 +115,7 @@ export default class DialogueList extends React.Component {
                                        accept=".mp4,video/*"/>
                             </Tab.Pane>,
                         }, {
-                            menuItem: '加载线上视频',
+                            menuItem: '加载线上视频（支持知乎视频）',
                             render: () => <Tab.Pane>
                                 <div style={{display: 'inline-block'}}>
                                     <Dropdown name="videoFileLink"
