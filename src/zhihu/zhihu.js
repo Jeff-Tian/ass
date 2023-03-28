@@ -14,7 +14,7 @@ module.exports = {
         myHeaders.append("stellate-dashboard-token", "3b524627829e3d5a0b4c357fbc687b9504a4cfe85cd9f1e2100e497124c8598f");
 
         var raw = JSON.stringify({
-            "query": "# Write your query or mutation here\nquery ExampleQuery($zvideoUrl: String!) {\n  getVideoInfoByUrl(zvideoUrl: $zvideoUrl) {\n    first {\n      playUrl\n    }\n  }\n}\n",
+            "query": "# Write your query or mutation here\nquery ExampleQuery($zvideoUrl: String!) {\n  getVideoInfoByUrl(zvideoUrl: $zvideoUrl) {\n    playUrl\n  }\n}\n",
             "variables": {
                 "zvideoUrl": zVideoUrl
             }
@@ -31,7 +31,7 @@ module.exports = {
             .then(response => response.json())
             .then(result => {
                 console.log(result);
-                return result.data.getVideoInfoByUrl.first.playUrl;
+                return result.data.getVideoInfoByUrl.playUrl;
             })
             .catch(error => console.log('error', error));
     }
