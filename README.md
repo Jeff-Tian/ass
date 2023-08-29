@@ -15,14 +15,16 @@
 - [weizhenye](https://github.com/weizhenye) 的 [ASS](https://github.com/weizhenye/ASS)
 - [Jeff Tian](https://github.com/Jeff-Tian) 的 [ASS Serialize](https://github.com/Jeff-Tian/ass-serialize)
 
+API 使用 GraphQL 调用 https://graphcdn.pa-ca.me/ (https://stellate.co/app/jeff-tian/demo-productive-steel/settings/dev-portal) ，源码在 https://github.com/Jeff-Tian/serverless-space 。
+
 ## 本地开发：
 
 ```bash
 git clone https://github.com/Jeff-Tian/ass
 cd ass
-npm install
+yarn
 # 注意，仅仅运行 gatsby develop 有时 HMR 会不工作
-gatsby develop
+yarn develop
 open http://localhost:8000
 ```
 
@@ -36,3 +38,7 @@ open http://localhost:8000
 - [ ] 特效的可视化编辑器
 - [ ] 播放视频时，自动选择应该编辑的行
 - [ ] 扩展 [weizhenye](https://github.com/weizhenye) 的 [ASS](https://github.com/weizhenye/ASS) 支持更多特效
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Jeff-Tian/ass&type=Date)](https://star-history.com/#Jeff-Tian/ass&Date)
