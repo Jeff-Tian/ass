@@ -12,7 +12,7 @@
     "ass-serialize": "*",
     "assjs": "0.0.6",
     "babel-plugin-transform-regenerator": "*",
-    "gatsby": "*",
+    "gatsby": "3.13.0",
     "gatsby-plugin-i18n": "*",
     "gatsby-plugin-react-helmet": "*",
     "intl": "*",
